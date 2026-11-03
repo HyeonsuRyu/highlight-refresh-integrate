@@ -35,20 +35,20 @@
 ## 목차
 
 1. [한눈에 보기](#한눈에-보기)
-- [내가 맡은 일](#내가-맡은-일)
-2. [프로젝트 개요](#프로젝트-개요)
-3. [시연](#시연)
-4. [주요 기능](#주요-기능)
-5. [시스템 아키텍처](#시스템-아키텍처)
-6. [기술 스택](#기술-스택)
-7. [DB 구조](#db-구조)
-8. [문제 해결 사례](#문제-해결-사례)
-9. [검증 결과](#검증-결과)
-10. [시작하기](#시작하기)
-11. [폴더 구조](#폴더-구조)
-12. [팀 소개](#팀-소개)
-13. [프로젝트 진행](#프로젝트-진행)
-14. [자체 평가와 회고](#자체-평가와-회고)
+2. [내가 맡은 일](#내가-맡은-일)
+3. [프로젝트 개요](#프로젝트-개요)
+4. [시연](#시연)
+5. [주요 기능](#주요-기능)
+6. [시스템 아키텍처](#시스템-아키텍처)
+7. [기술 스택](#기술-스택)
+8. [DB 구조](#db-구조)
+9. [문제 해결 사례](#문제-해결-사례)
+10. [검증 결과](#검증-결과)
+11. [시작하기](#시작하기)
+12. [폴더 구조](#폴더-구조)
+13. [팀 소개](#팀-소개)
+14. [프로젝트 진행](#프로젝트-진행)
+15. [자체 평가와 회고](#자체-평가와-회고)
 
 ---
 
@@ -81,14 +81,14 @@
 
 | 영역 | 한 일 | 관련 위치 |
 |---|---|---|
-| 팀장 · 협업 | 일정·작업 분배, 협업 규칙·템플릿·CODEOWNERS, 브랜치 자동 정리 Actions, PR 리뷰·승인 | `.github/`, [`AGENT.md`](AGENT.md) |
+| 팀장 · 협업 | 일정·작업 분배, 협업 규칙·템플릿·CODEOWNERS, PR 리뷰·승인 | `.github/`, [`AGENT.md`](AGENT.md) |
 | 환경 · 구조 | Poetry 환경, 기능명세서 기반 패키지 골격, 설치 가이드, `requirements.txt` | [`docs/project_structure.md`](docs/project_structure.md) |
 | 외부 데이터 (Refresh) | ECOS 클라이언트, ECOS 통계 추천(`ecos_finder`), 한국수출입은행 환율, 통계용어 풀이 | `hri/api/`, `hri/service/term_service.py` |
 | 질의응답 | 추천 질문, 용어 검색 사이드바, 👍/👎 피드백 | `hri/view/chat_view.py` |
 | 챗봇 정확도 | 모델 설정 원인 분석, 답변 생성 `gpt-4.1` 적용, 근거 규칙 보강 | `hri/prompt/rag_prompt.py` |
 | UI 통합 | 대화 이어가기 통합, 탭 이동 버그 수정, 역할별 첫 화면, 지표 비교표 UI, 색 테마 | `hri/view/` |
 
-> 아래 시연·기능 설명에서 **🙋 담당** 표시가 붙은 항목이 제가 구현하거나 개선한 부분입니다. 대표 사례는 [문제 해결 사례 5](#문제-해결-사례)에 있습니다.
+> 아래 시연·기능 설명에서 **담당** 표시가 붙은 항목이 제가 구현하거나 개선한 부분입니다. 대표 사례는 [문제 해결 사례 5](#문제-해결-사례)에 있습니다.
 
 ---
 
@@ -151,7 +151,7 @@
 </details>
 
 <details>
-<summary><b>② 보고서 목록 · 검색</b> · 🙋 담당: 목록 형식 통일, 로그인 첫 화면</summary>
+<summary><b>② 보고서 목록 · 검색</b> · 담당: 목록 형식 통일, 로그인 첫 화면</summary>
 <br/>
 
 <img src="docs/demo/02_report_search.gif" alt="보고서 목록과 검색" width="860" />
@@ -185,7 +185,7 @@
 </details>
 
 <details>
-<summary><b>⑤ 질의응답 · 출처 · "자료에 없습니다"</b> · 🙋 담당: 추천 질문, 피드백, 정확도 개선</summary>
+<summary><b>⑤ 질의응답 · 출처 · "자료에 없습니다"</b> · 담당: 추천 질문, 피드백, 정확도 개선</summary>
 <br/>
 
 <img src="docs/demo/05_qa.gif" alt="질의응답" width="860" />
@@ -197,7 +197,7 @@
 </details>
 
 <details>
-<summary><b>⑥ 용어 검색</b> · 🙋 담당</summary>
+<summary><b>⑥ 용어 검색</b> · 담당</summary>
 <br/>
 
 <img src="docs/demo/06_term_search.gif" alt="용어 검색" width="860" />
@@ -208,7 +208,7 @@
 </details>
 
 <details>
-<summary><b>⑦ 과거 대화 이어가기</b> · 🙋 담당: 질의응답 탭 통합</summary>
+<summary><b>⑦ 과거 대화 이어가기</b> · 담당: 질의응답 탭 통합</summary>
 <br/>
 
 <img src="docs/demo/07_chat_history.gif" alt="과거 대화 기록" width="860" />
@@ -219,7 +219,7 @@
 </details>
 
 <details>
-<summary><b>⑧ 수치 검증 (ECOS)</b> · 🙋 담당: ECOS 클라이언트·통계 선택</summary>
+<summary><b>⑧ 수치 검증 (ECOS)</b> · 담당: ECOS 클라이언트·통계 선택</summary>
 <br/>
 
 <img src="docs/demo/08_ecos_verify.gif" alt="ECOS 수치 검증" width="860" />
@@ -230,7 +230,7 @@
 </details>
 
 <details>
-<summary><b>⑨ 지표 비교표 · 차트 ⭐ 핵심 기능</b> · 🙋 담당: UI 개선</summary>
+<summary><b>⑨ 지표 비교표 · 차트 ⭐ 핵심 기능</b> · 담당: UI 개선</summary>
 <br/>
 
 <img src="docs/demo/09_indicator_compare.gif" alt="지표 비교표" width="860" />
@@ -906,3 +906,5 @@ gitGraph
 류현수 · 김희진 · 서동안 · 엄정현 · 임세준 · 장유빈
 
 </div>
+
+[최상단으로](#HRI-Insight-Bridge)
