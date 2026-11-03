@@ -4,6 +4,8 @@
 
 # HRI Insight Bridge
 
+<sub>류현수 포트폴리오 · 팀장 · 환경/협업 · 외부 데이터(ECOS·환율) · 챗봇 정확도 · UI 통합</sub>
+
 **경제 보고서 AI 요약·질의응답 및 관리자 모니터링 서비스**
 
 경제 분석 보고서(PDF)를 올리면 **근거 쪽수와 함께 요약·답변**하고,<br/>
@@ -22,7 +24,7 @@
 현대 AI 서비스 개발자 과정 · 1차 프로젝트 **4조 Insight Bridge**<br/>
 2026.10.21 ~ 2026.11.02
 
-[시연](#시연) · [주요 기능](#주요-기능) · [아키텍처](#시스템-아키텍처) · [시작하기](#시작하기) · [팀 소개](#팀-소개)
+[내가 맡은 일](#내가-맡은-일) · [시연](#시연) · [주요 기능](#주요-기능) · [아키텍처](#시스템-아키텍처) · [시작하기](#시작하기) · [팀 소개](#팀-소개)
 
 </div>
 
@@ -33,6 +35,7 @@
 ## 목차
 
 1. [한눈에 보기](#한눈에-보기)
+- [내가 맡은 일](#내가-맡은-일)
 2. [프로젝트 개요](#프로젝트-개요)
 3. [시연](#시연)
 4. [주요 기능](#주요-기능)
@@ -67,6 +70,25 @@
 | **I** | **Integrate** · 여러 보고서를 한눈에 | 본문·표·차트에서 지표를 추출해 보고서 간 비교표와 차트 생성 |
 
 > **근거 우선 원칙**: 모든 답변에 보고서 이름과 쪽수를 붙이고, 근거를 찾지 못하면 LLM을 호출하지 않고 **"자료에 없습니다"** 라고 답합니다.
+
+---
+
+## 내가 맡은 일
+
+> 류현수 · 팀장 · [@HyeonsuRyu](https://github.com/HyeonsuRyu) · hsoo112149@gmail.com<br/>
+> 커밋 77개(merge 제외) · PR 리뷰·병합 42건
+> [원본 레포](https://github.com/hyundai-insight-bridge/highlight-refresh-integrate)
+
+| 영역 | 한 일 | 관련 위치 |
+|---|---|---|
+| 팀장 · 협업 | 일정·작업 분배, 협업 규칙·템플릿·CODEOWNERS, 브랜치 자동 정리 Actions, PR 리뷰·승인 | `.github/`, [`AGENT.md`](AGENT.md) |
+| 환경 · 구조 | Poetry 환경, 기능명세서 기반 패키지 골격, 설치 가이드, `requirements.txt` | [`docs/project_structure.md`](docs/project_structure.md) |
+| 외부 데이터 (Refresh) | ECOS 클라이언트, ECOS 통계 추천(`ecos_finder`), 한국수출입은행 환율, 통계용어 풀이 | `hri/api/`, `hri/service/term_service.py` |
+| 질의응답 | 추천 질문, 용어 검색 사이드바, 👍/👎 피드백 | `hri/view/chat_view.py` |
+| 챗봇 정확도 | 모델 설정 원인 분석, 답변 생성 `gpt-4.1` 적용, 근거 규칙 보강 | `hri/prompt/rag_prompt.py` |
+| UI 통합 | 대화 이어가기 통합, 탭 이동 버그 수정, 역할별 첫 화면, 지표 비교표 UI, 색 테마 | `hri/view/` |
+
+> 아래 시연·기능 설명에서 **🙋 담당** 표시가 붙은 항목이 제가 구현하거나 개선한 부분입니다. 대표 사례는 [문제 해결 사례 5](#문제-해결-사례)에 있습니다.
 
 ---
 
@@ -114,7 +136,6 @@
 ## 시연
 
 > 전체 시연 영상(5분 38초): [Hyundai AI 서비스 개발자 과정 1차 프로젝트 4조_Insight Bridge(Highlight Refresh Integrate)](https://youtu.be/TRh1QrnkGGk)
-> <!-- TODO: 팀 내부 Drive 링크입니다. 포트폴리오로 공개할 때는 YouTube 등 공개 링크로 교체하세요. -->
 
 아래 GIF는 시연 영상을 기능별로 나눈 것입니다. 각 항목을 눌러 펼쳐 보세요.
 
@@ -130,7 +151,7 @@
 </details>
 
 <details>
-<summary><b>② 보고서 목록 · 검색</b></summary>
+<summary><b>② 보고서 목록 · 검색</b> · 🙋 담당: 목록 형식 통일, 로그인 첫 화면</summary>
 <br/>
 
 <img src="docs/demo/02_report_search.gif" alt="보고서 목록과 검색" width="860" />
@@ -164,7 +185,7 @@
 </details>
 
 <details>
-<summary><b>⑤ 질의응답 · 출처 · "자료에 없습니다"</b></summary>
+<summary><b>⑤ 질의응답 · 출처 · "자료에 없습니다"</b> · 🙋 담당: 추천 질문, 피드백, 정확도 개선</summary>
 <br/>
 
 <img src="docs/demo/05_qa.gif" alt="질의응답" width="860" />
@@ -176,7 +197,7 @@
 </details>
 
 <details>
-<summary><b>⑥ 용어 검색</b></summary>
+<summary><b>⑥ 용어 검색</b> · 🙋 담당</summary>
 <br/>
 
 <img src="docs/demo/06_term_search.gif" alt="용어 검색" width="860" />
@@ -187,7 +208,7 @@
 </details>
 
 <details>
-<summary><b>⑦ 과거 대화 이어가기</b></summary>
+<summary><b>⑦ 과거 대화 이어가기</b> · 🙋 담당: 질의응답 탭 통합</summary>
 <br/>
 
 <img src="docs/demo/07_chat_history.gif" alt="과거 대화 기록" width="860" />
@@ -198,7 +219,7 @@
 </details>
 
 <details>
-<summary><b>⑧ 수치 검증 (ECOS)</b></summary>
+<summary><b>⑧ 수치 검증 (ECOS)</b> · 🙋 담당: ECOS 클라이언트·통계 선택</summary>
 <br/>
 
 <img src="docs/demo/08_ecos_verify.gif" alt="ECOS 수치 검증" width="860" />
@@ -209,7 +230,7 @@
 </details>
 
 <details>
-<summary><b>⑨ 지표 비교표 · 차트 ⭐ 핵심 기능</b></summary>
+<summary><b>⑨ 지표 비교표 · 차트 ⭐ 핵심 기능</b> · 🙋 담당: UI 개선</summary>
 <br/>
 
 <img src="docs/demo/09_indicator_compare.gif" alt="지표 비교표" width="860" />
@@ -434,6 +455,16 @@ erDiagram
 
 </details>
 
+<details>
+<summary><b>5. 챗봇 정확도가 오르지 않던 문제: 모델 설정이 원인</b></summary>
+
+- **문제**: 검색·프롬프트를 조정해도 정확도가 기대에 못 미쳤습니다.
+- **원인**: temperature 0을 쓰려고 reasoning 모델(`gpt-6-luna`)의 effort를 `none`으로 낮춘 설정이 답변 성능을 떨어뜨렸습니다.
+- **해결**: 평가 스크립트로 원인을 하나씩 분리한 뒤 답변 생성에는 reasoning이 없는 `gpt-4.1`을 쓰고, 다른 기간 수치로 답하던 확신 오답을 막는 근거 규칙을 추가했습니다.
+- **결과**: 정답 질문 정확도 93.2%, 보고서 밖 질문 거절 100%.
+
+</details>
+
 ---
 
 ## 검증 결과
@@ -579,7 +610,7 @@ highlight-refresh-integrate/
 
 각 이름을 눌러 담당 업무와 회고를 확인하세요.
 
-<details>
+<details open>
 <summary><b>류현수</b> · 팀장 · 개발 환경, 협업 규칙, UI 통합</summary>
 <br/>
 
@@ -588,13 +619,16 @@ highlight-refresh-integrate/
 | GitHub | [@HyeonsuRyu](https://github.com/HyeonsuRyu) |
 | 연락처 | hsoo112149@gmail.com |
 | 담당 업무 | Git·가상환경·DB 환경 세팅, 폴더 구조, 환율 API·용어 풀이, 추천 질문, 테스트 시나리오·실행 재현 테스트 |
+| 활동량 | 커밋 77개(merge 제외) · PR 리뷰·병합 42건 |
 
 **주요 기여**
 
-- 협업 규칙(`CONTRIBUTING.md`, 이슈·PR 템플릿, CODEOWNERS) 수립과 PR 리뷰·승인
-- Poetry 기반 개발 환경 구성, `requirements.txt` 내보내기, 설치 가이드 정리
-- 챗봇 성능 개선
-- 색 테마 통일, 탭 이동 문제 해결, 대화 이어가기를 질의응답 탭에 통합하는 등 UI 개선
+- **협업 체계**: `CONTRIBUTING.md`(브랜치 전략·이름 규칙·merge 전략·코딩 컨벤션), 이슈·PR 템플릿, CODEOWNERS, 병합된 브랜치·이슈 자동 정리 GitHub Actions, AI 코딩 도구 규칙 [`AGENT.md`](AGENT.md)
+- **환경·구조**: Poetry 기반 Python 3.11 환경, 기능명세서 v5에 맞춘 패키지 골격과 [`docs/project_structure.md`](docs/project_structure.md), `.env.example`·`requirements.txt`·설치 가이드
+- **외부 데이터**: ECOS 클라이언트(`hri/api/ecos_client.py`), 보고서 지표에 맞는 ECOS 통계를 LLM 선택 + 코드 재검증으로 고르는 `hri/api/ecos_finder.py`, 한국수출입은행 환율(`hri/api/exchange_client.py`), 통계용어 풀이(`hri/service/term_service.py`)
+- **질의응답**: 추천 질문, 용어 검색 사이드바, 👍/👎 피드백, `qa_graph` 노드 연결
+- **챗봇 정확도 개선**: 평가 스크립트 Markdown 보고서 자동 생성, 답변 생성 모델에 `gpt-4.1` 적용(temperature 0), 근거 규칙 보강(기간·대상 확인, 표 머리글 확인, 다중 항목 누락 금지), `MMR_LAMBDA` 설정 분리
+- **UI 통합**: 대화 이어가기를 질의응답 탭에 통합, 탭 이동 불가 버그 수정, 역할별 첫 화면, 응답 생성 중 안내, 지표 비교표 UI 개선, 보고서 선택 UI 통일, 색 테마 통일
 
 **회고**
 
